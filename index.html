@@ -229,6 +229,15 @@ a:active {
 	padding: 4px 6px;
 }
 		</style>
+		<script>
+			if ('serviceWorker' in navigator) {
+				navigator.serviceWorker.register('./service.worker.js').then(reg => {
+					if (!navigator.serviceWorker.controller) {
+						window.location.reload();
+					}
+				});
+			}
+		</script>
 	</head>
 	<body>
 		<div
